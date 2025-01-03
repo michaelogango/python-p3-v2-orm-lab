@@ -1,6 +1,7 @@
 # lib/employee.py
 from __init__ import CURSOR, CONN
 from department import Department
+# 
 
 class Employee:
 
@@ -187,4 +188,6 @@ class Employee:
 
     def reviews(self):
         """Return list of reviews associated with current employee"""
+        from review import Review
+        return [review for review in Review.get_all() if review.employee_id == self.id]
         pass
